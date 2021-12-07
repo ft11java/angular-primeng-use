@@ -1,0 +1,38 @@
+    
+    <div class="container mt-3">
+        <div class="card">
+    <p-table [value]="newses"  styleClass="p-datatable-sm p-datatable-striped" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,25,50]" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+       
+
+
+        <ng-template pTemplate="header">
+            <tr>
+               
+                <th>Resim</th>
+                <th pSortableColumn="newsTitle">Yazı Başlığı <p-sortIcon field="newsTitle"></p-sortIcon></th>
+                <th pSortableColumn="newsRegistrationDate">Tarih <p-sortIcon field="newsRegistrationDate"></p-sortIcon></th>
+                <th pSortableColumn="deploy">Yayın Durumu <p-sortIcon field="deploy"></p-sortIcon></th>
+                <th >İşlemler </th>
+               
+             </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-news>
+            <tr>
+                <td><img [src]="'data:image/jpeg;base64,' + news!.databaseFile!.data" alt="..." width="100" class="p-shadow-4" /></td>
+                <td>{{news.newsTitle}}</td>
+                <td>{{news.newsRegistrationDate}}</td>
+                <td>{{news.deploy}}</td>
+                <td>
+                    <div class="container-fluid  ">
+                        <button class="btn btn-success btn-sm" (click)="articleDetails(news.id)"
+                            id="button">
+                            Göster
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+</div>

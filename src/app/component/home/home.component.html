@@ -1,0 +1,37 @@
+
+<button [swal]="['Oops!', 'This is not implemented yet :/', 'warning']">
+    Do it!
+  </button>
+
+
+  <button [swal]="['Good job!', 'You clicked the button!', 'success']">
+    Success swal
+  </button>
+
+  <button [swal]="deleteSwal" (confirm)="deleteMethod()">Sil</button>
+
+<swal
+  #deleteSwal
+  title="Emin misiniz?"
+  text="Silmek istediğiniz veri geri alınamaz."
+  type="question"
+  [showCancelButton]="true"
+  [focusCancel]="true">
+</swal>
+
+<p-button label="Onayla" icon="pi pi-check" iconPos="left"  [swal]="['Good job!', 'You clicked the button!', 'success']"></p-button>
+<p-button label="Onayla" icon="pi pi-check" iconPos="left" [swal]="deleteSwal" class="p-button-danger"></p-button>
+<button pButton type="button" label="Sil" icon="pi pi-times" iconPos="left" [swal]="deleteSwal" class="p-button-danger"></button>
+<br>
+<div >
+ <div>scx</div>
+    <div class="p-field p-col-12 p-md-4">
+        <label for="icon"></label>
+        <p-calendar [(ngModel)]="value" [showIcon]="true" inputId="icon"  dateFormat="yy-mm-dd"></p-calendar>
+    </div>
+</div>
+<div>
+    <p-knob [(ngModel)]="valuee"></p-knob>
+    {{valuee}}
+    <input type="text" [(ngModel)]="valuee">
+</div>
